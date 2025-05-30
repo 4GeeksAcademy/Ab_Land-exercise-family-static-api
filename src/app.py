@@ -72,20 +72,20 @@ def add_new_member():
     }
 
     jackson_family.add_member(new_member)
-    return jsonify({'msg': 'ok', 'member': new_member}), 201
+    return jsonify({'msg': 'ok', 'member': new_member}), 200
 
 
-@app.route('/members/<int:id>', methods=['GET'])
-def get_member_by_ID(id):
-    member = jackson_family.get_member(id)
+@app.route('/members/<int:member_id>', methods=['GET'])
+def get_member_by_ID(member_id):
+    member = jackson_family.get_member(member_id)
     if member:
         return jsonify(member), 200
     return jsonify({'msg': 'Member not found'}), 404
 
 
-@app.route('/members/<int:id>', methods=['DELETE'])
-def delete_member_by_ID(id):
-    deleted = jackson_family.delete_member(id)
+@app.route('/members/<int:member_id>', methods=['DELETE'])
+def delete_member_by_ID(member_id):
+    deleted = jackson_family.delete_member(member_id)
     if deleted:
         return jsonify({'msg': 'Member deleted successfully', 'done': deleted}), 200
     return jsonify({'msg': 'Member not found'}), 404
