@@ -26,7 +26,7 @@ class FamilyStructure:
                 "lucky_numbers": [10, 14, 3]
             },
             {
-                "id": self._generate_id(),
+                'id': self._generate_id(),
                 "first_name": "Jimmy",
                 "last_name": last_name,
                 "age": 5,
@@ -58,7 +58,7 @@ class FamilyStructure:
         # Loop all the members and return the one with the given id
         # return next(filter(lambda member: member['id'] == id, self._members), None)
         for member in self._members:
-            if member.get("id") == id:
+            if member.get('id') == id:
                 return member
         return None
         
